@@ -75,7 +75,7 @@ function quick_sort(arr, left, right) {
   return arr;
 }
 function partition(arr, left, right) {
-  let pivot = arr[Math.floor(Math.random() * right)]; // pivot값을 랜덤으로 설정함으로서 최악의 경우를 어느정도 방지
+  let pivot = arr[arr.length - 1]; // pivot값을 랜덤으로 설정함으로서 최악의 경우를 어느정도 방지
   let start = left + 1;
   let end = right;
 
@@ -94,7 +94,7 @@ function partition(arr, left, right) {
 
   return end;
 }
-//console.log(quickSort([9, 3, 7, 5, 6, 2, 8]));
+console.log(quickSort([9, 3, 7, 5, 6, 2, 8]));
 
 const graph = [
   ["a", "b", 5],
