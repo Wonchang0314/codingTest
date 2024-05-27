@@ -1,12 +1,8 @@
 function solution(numbers) {
     let answer = 0;
-    const strNums = numbers.map(x => String(x));
-    strNums.sort((a , b) => (b + a) - (a + b));
-    
-    if (strNums[0] === '0') {
-        return '0';
-    }
+    let strNums = numbers.map(String);
+    strNums.sort((a, b) => Number(b + a) - Number(a + b));
     answer = strNums.join('');
     
-    return answer;
+    return answer[0] === '0' ? '0' : answer;
 }
