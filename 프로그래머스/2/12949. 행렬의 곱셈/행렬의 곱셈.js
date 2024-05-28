@@ -2,7 +2,6 @@ function solution(arr1, arr2) {
     let rowOne = arr1.length, colOne = arr1[0].length;
     let rowTwo = arr2.length, colTwo = arr2[0].length;
     let answer = new Array(rowOne);
-    let temp = [];
     
     for(let i = 0; i < rowOne; i++){
         answer[i] = new Array(colTwo).fill(0);
