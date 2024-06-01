@@ -11,17 +11,11 @@ function solution(want, number, discount) {
 function check(arr, num, w){
     let countMap = {};
     arr.forEach((item) => {
-        if(countMap[item]){
-            countMap[item] += 1;
-        }
-        else{
-            countMap[item] = 1;
-        }
+        if(countMap[item]) countMap[item] += 1;
+        else countMap[item] = 1;
     })
     for(let i = 0; i < num.length; i++){
-        if(countMap[w[i]] !== num[i]){
-            return false;
-        }
+        if(countMap[w[i]] !== num[i]) return false;
     }
     return true;
 }
