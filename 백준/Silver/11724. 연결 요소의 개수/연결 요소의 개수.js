@@ -1,33 +1,33 @@
-function recursion(index, visited, graph) {
+let answer = 0;
+const fs = require("fs");
+let input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
+
+let [n, m] = input[0].split(" ").map(Number);
+input = input.slice(1).map((item) => item.split(" ").map(Number));
+
+let visited = new Array(n + 1).fill(false);
+let graph = new Array(n + 1).fill(0).map(() => new Array(n + 1).fill(0));
+
+for (let i = 0; i < m; i++) {
+  let [a, b] = input[i];
+  graph[a][b] = 1;
+  graph[b][a] = 1;
+}
+
+function recursion(index) {
   visited[index] = true;
-  for (let node of graph[index]) {
-    if (!visited[node]) {
-      recursion(node, visited, graph);
+  for (let i = 1; i <= n; i++) {
+    if (!visited[i] && graph[index][i] === 1) {
+      recursion(i);
     }
   }
 }
 
-const input = require("fs")
-    .readFileSync("/dev/stdin")
-    .toString()
-    .trim()
-    .split("\n");
-  //let input = data.trim().split("\n");
-  let n = Number(input[0].split(" ")[0]);
-  let m = Number(input[0].split(" ")[1]);
-  const nodes = input.slice(1).map((node) => node.split(" ").map(Number));
-  let graph = Array.from({ length: n + 1 }, () => []);
-  for (let [a, b] of nodes) {
-    graph[a].push(b);
-    graph[b].push(a);
+for (let i = 1; i <= n; i++) {
+  if (!visited[i]) {
+    recursion(i);
+    answer += 1;
   }
-  let visited = new Array(n + 1).fill(false);
-  let answer = 0;
+}
 
-  for (let i = 1; i <= n; i++) {
-    if (!visited[i]) {
-      recursion(i, visited, graph);
-      answer += 1;
-    }
-  }
-  console.log(answer);
+console.log(answer);
