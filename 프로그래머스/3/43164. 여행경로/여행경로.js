@@ -1,7 +1,7 @@
 function solution(tickets) {
     var answer = [];
     let path = new Map();
-    
+    let stack = [];
     for (let i = 0; i < tickets.length; i++) {
         if (!path.has(tickets[i][0])) {
             path.set(tickets[i][0], [tickets[i][1]]);
@@ -12,13 +12,18 @@ function solution(tickets) {
     let paths = Array.from(path);
     paths.forEach(p => p[1].sort());
     path = new Map(paths);
-    function recursion(from){
-        while(path.get(from) && path.get(from).length > 0){
+    
+    stack.push('ICN');
+    while(stack.length > 0){
+        let from = stack[stack.length - 1];
+        if(path.get(from) && path.get(from).length > 0){
             let to = path.get(from).shift();
-            recursion(to);
+            stack.push(to)
         }
-        answer.push(from);
+        else{
+            answer.push(stack.pop());   
+        }
     }
-    recursion('ICN');
+
     return answer.reverse();
 }
