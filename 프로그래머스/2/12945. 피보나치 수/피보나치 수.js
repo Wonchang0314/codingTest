@@ -1,12 +1,9 @@
-
 function solution(n) {
-    let a = 0;
-    let b = 1;
-    let fib = 0;;
+    let answer = [];
+    answer[0] = 0;
+    answer[1] = 1;
     for(let i = 2; i <= n; i++){
-        fib = (a + b) % 1234567;
-        a = b;
-        b = fib;
+        answer[i] = (answer[i - 2] + answer[i - 1]) % 1234567;
     }
-    return fib % 1234567;
+    return answer[n];
 }
