@@ -1,7 +1,7 @@
 function solution(x, y, n) {
     let answer = [];
-    let index = 0
     let queue = [[x, 0]];
+    let index = 0;
     let tried = new Set();
     while(queue.length && index < queue.length){
         let [num, count] = queue[index];
