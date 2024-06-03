@@ -1,13 +1,17 @@
 function solution(prices) {
     let answer = new Array(prices.length).fill(0);
+    let stack = [];
     
     for(let i = 0; i < prices.length; i++){
-        for(let j = i + 1; j < prices.length; j++){
-            answer[i] += 1;
-            if(prices[i] > prices[j]){
-                break;
-            }
+        while(stack.length > 0 && prices[i] < prices[stack[stack.length - 1]]){
+            let last = stack.pop();
+            answer[last] = i - last;
         }
+        stack.push(i);
+    }
+    while(stack.length > 0){
+        let j = stack.pop();
+        answer[j] = answer.length - 1 - j
     }
     return answer;
 }
