@@ -16,7 +16,7 @@ function solution(maps) {
             dfs(nx + 1, ny, table);
             dfs(nx - 1, ny, table);
         }
-        return;
+        return 0;
     }
     
     for(let i = 0; i < row; i++){
