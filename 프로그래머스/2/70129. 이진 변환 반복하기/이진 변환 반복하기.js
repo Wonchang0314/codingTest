@@ -1,6 +1,3 @@
-function decimalToBinary(decimalNumber) {
-    return decimalNumber.toString(2);
-};
 function solution(s) {
     var answer = [];
     let removedZero = 0; 
@@ -16,7 +13,7 @@ function solution(s) {
             }
         }
         count += 1;
-        s = decimalToBinary(input.length);
+        s = input.length.toString(2);
         input = "";
     }
     
