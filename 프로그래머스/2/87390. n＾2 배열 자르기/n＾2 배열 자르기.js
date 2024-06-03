@@ -1,5 +1,6 @@
 function solution(n, left, right) {
     var answer = [];
+   
     for(let i = left; i <= right; i++){
         let j = Math.floor(i / n);
         let k = i % n;
