@@ -48,7 +48,6 @@ function solution(fees, records) {
         let prev = answer.get(car)[1];
         let total = (60 * hour) + min + prev;
         let fee = calculateFee(total, fees);
-        //console.log(total, fee);
         answer.set(car, [calculateFee(total, fees), total]);
     })
     
