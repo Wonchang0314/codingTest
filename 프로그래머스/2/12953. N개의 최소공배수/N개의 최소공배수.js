@@ -1,14 +1,16 @@
-function gcd(x, y) {
-    while (y !== 0) {
-        let temp = y;
-        y = x % y;
-        x = temp;
+const gcd = (n, m) => {
+    while(m !== 0){
+        let temp = m;
+        m = n % m;
+        n = temp;
     }
-    return x;
+    return n;
 }
-function lcm(x, y) {
-    return (x * y) / gcd(x, y);
+const lcm = (n, m) => {
+    return n * m / gcd(n, m);
 }
 function solution(arr) {
-   return arr.reduce((acc, num) => lcm(acc, num));
+    let answer = 0;
+    answer = arr.reduce((a, b) => lcm(a, b));
+    return answer;
 }
