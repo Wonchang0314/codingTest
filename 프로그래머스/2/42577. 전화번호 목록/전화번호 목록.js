@@ -1,18 +1,11 @@
 function solution(phone_book) {
     let answer = true;
-    let phoneMap = new Map();
-
-    for (let phone of phone_book) {
-        phoneMap.set(phone, true);
-    }
-
-    for (let phone of phone_book) {
-        for (let i = 1; i < phone.length; i++) {
-            let prefix = phone.substring(0, i);
-            if (phoneMap.has(prefix)) {
-                return false;
-            }
-        }
+    phone_book.sort();
+    
+    for(let i = 0; i < phone_book.length - 1; i++){
+        let current = phone_book[i];
+        let next = phone_book[i + 1];
+        if(next.startsWith(current)) return false;
     }
     return answer;
 }
