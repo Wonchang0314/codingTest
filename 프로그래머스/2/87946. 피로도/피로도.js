@@ -1,20 +1,19 @@
 
-function solution(k, dungeons) {
-    let maxCount = 0; 
-    function recursion(visited, count, k){
-        if(count > maxCount){
-            maxCount = count;
-        }
+function solution(k, dungeons) {   
+    let answer = 0;
+    const visited = Array(dungeons.length).fill(false);
+    
+    function backTrack(k, currentCount) {
+        answer = Math.max(currentCount, answer);
+        
         for(let i = 0; i < dungeons.length; i++){
-            if(visited[i] === true) continue;
-            else if(dungeons[i][0] <= k){
+            if(k >= dungeons[i][0] && visited[i] === false){
                 visited[i] = true;
-                recursion(visited, count + 1, k - dungeons[i][1]);
+                backTrack(k - dungeons[i][1], currentCount + 1);
                 visited[i] = false;
             }
         }
     }
-    
-    recursion(Array(dungeons.length).fill(false), 0, k);
-    return maxCount;
+    backTrack(k, 0);
+    return answer;
 }
