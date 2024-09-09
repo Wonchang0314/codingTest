@@ -26,7 +26,6 @@ function solution(n, costs) {
     
     for(const edge of costs){
         if(edges === n - 1) break;
-        
         let xroot = find(parent, edge[0]);
         let yroot = find(parent, edge[1]);
         
