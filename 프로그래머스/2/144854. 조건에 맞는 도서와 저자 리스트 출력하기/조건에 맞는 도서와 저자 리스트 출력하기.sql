@@ -1,7 +1,6 @@
 -- 코드를 입력하세요
-select book.BOOK_ID, author.AUTHOR_NAME, DATE_FORMAT(book.PUBLISHED_DATE, "%Y-%m-%d") as PUBLISHED_DATE
-from BOOK book 
-join AUTHOR author 
-on book.AUTHOR_ID = author.AUTHOR_ID 
-where book.CATEGORY = '경제'
-order by book.PUBLISHED_DATE asc
+select b.BOOK_ID, a.AUTHOR_NAME, date_format(b.PUBLISHED_DATE, '%Y-%m-%d') as PUBLISHED_DATE
+from BOOK b
+join AUTHOR a on b.AUTHOR_ID = a.AUTHOR_ID
+where b.CATEGORY = '경제'
+order by b.PUBLISHED_DATE asc 

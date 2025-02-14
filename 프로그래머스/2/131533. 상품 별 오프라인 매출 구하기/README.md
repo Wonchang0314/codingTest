@@ -1,6 +1,6 @@
 # [level 2] 상품 별 오프라인 매출 구하기 - 131533 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131533) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131533?language=mysql) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@ Empty
 
 ### 제출 일자
 
-2024년 11월 08일 15:43:49
+2025년 02월 13일 15:32:22
 
 ### 문제 설명
 
