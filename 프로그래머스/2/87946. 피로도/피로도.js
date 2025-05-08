@@ -1,19 +1,18 @@
 
 function solution(k, dungeons) {   
     let answer = 0;
-    const visited = Array(dungeons.length).fill(false);
+    const visited = new Array(dungeons.length).fill(false);
     
-    function backTrack(k, currentCount) {
-        answer = Math.max(currentCount, answer);
-        
-        for(let i = 0; i < dungeons.length; i++){
-            if(k >= dungeons[i][0] && visited[i] === false){
+    const dfs = (currentK, count, dungeons, visited) => {
+        answer = Math.max(answer, count);
+        for(let i = 0; i < dungeons.length; i++) {
+            if(currentK >= dungeons[i][0] && !visited[i]) {
                 visited[i] = true;
-                backTrack(k - dungeons[i][1], currentCount + 1);
+                dfs(currentK - dungeons[i][1], count + 1, dungeons, visited);
                 visited[i] = false;
             }
         }
     }
-    backTrack(k, 0);
+    dfs(k, 0, dungeons, visited);
     return answer;
 }
